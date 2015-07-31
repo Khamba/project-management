@@ -1,0 +1,56 @@
+#header{
+	vertical-align: center;
+}
+
+#header{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #dcdcdc;
+	margin: 15px 0px;
+}
+
+#setting-container{
+	padding-top: 31px;
+	padding-bottom: 31px;
+	background-color: #dcdcdc;
+	margin: 15px 0px;
+}
+
+#header-empty{
+	padding-top: 48px;
+	padding-bottom: 48px;
+	background-color: #dcdcdc;
+	margin: 15px 0px;
+}
+
+#main-body{
+	margin: 20px 5px;
+}
+
+.name{
+	border: 0px;
+	border-bottom: 2px;
+	border-color: #ddd;
+	border-style: solid;
+}
+
+#table{
+	margin: 23px 0px;
+	border-radius: 5px;
+}
+
+.above-table{
+	margin-top: 5px;
+}
+
+#create-report{
+	margin-bottom: -8em;
+}
+
+#selected{
+	background-color: #f5f5dc;
+}
+
+td, .head {
+	text-align: center;
+}

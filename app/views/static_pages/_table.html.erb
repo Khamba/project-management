@@ -1,0 +1,39 @@
+<table class="table table-bordered" id="table">
+    <thead>
+        <tr>
+            <th class="head">Task</th>
+            <th class="head">Start Date</th>
+            <th class="head">End Date</th>
+            <th class="head">Estimated hours</th>
+            <th class="head">Hours spent</th>
+            <th class="head">Schedule variance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% paginated_tasks = current_user.tasks.paginate(page: params[:page], per_page: 5) %>
+        <% paginated_tasks.each_with_index do |task, index| %>
+            <% if index % 2 == 1 %>
+                <tr class="active">
+            <% else %>
+                <tr>
+            <% end %>
+                    <td><%= task.description %></td>
+                    <td><%= task.start_date.strftime("%d/%m/%Y") %></td>
+                    <td><%= task.end_date.strftime("%d/%m/%Y") %></td>
+                    <% est_hours = task.estimated_hours.to_f %>
+                    <% if est_hours.to_i == est_hours %>
+                        <% est_hours = est_hours.to_i %>
+                    <% end %>
+                    <td><%= est_hours %></td>
+                    <% hrs_spent = task.hours_spent.to_f %>
+                    <% if hrs_spent.to_i == hrs_spent %>
+                        <% hrs_spent = hrs_spent.to_i %>
+                    <% end %>
+                    <td><%= hrs_spent %></td>
+                    <td><%= ((task.hours_spent - task.estimated_hours)/(task.estimated_hours) * 100).abs.round(1) %>%</td>
+                </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= will_paginate paginated_tasks, renderer: BootstrapPagination::Rails %>
