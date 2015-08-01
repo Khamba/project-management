@@ -54,3 +54,7 @@
 td, .head {
 	text-align: center;
 }
+
+#placeholder{
+	height: 34px;
+}
